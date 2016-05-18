@@ -7,6 +7,8 @@ from app.assets import assets
 import app.utils as utils
 from app import config
 from app.user import user
+from app.group import group
+#from app.firma import firma
 from app.auth import auth
 import time
 
@@ -52,6 +54,8 @@ def register_extensions(app):
 
 def register_blueprints(app):
     app.register_blueprint(user, url_prefix='/user')
+    app.register_blueprint(group, url_prefix='/group')
+    #app.register_blueprint(firma, url_prefix='/firma')
     app.register_blueprint(auth)
 
 

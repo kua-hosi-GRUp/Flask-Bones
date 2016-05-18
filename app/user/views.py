@@ -24,7 +24,7 @@ def list():
 
     if g.pjax:
         return render_template(
-            'users.html',
+            'groups.html',
             datatable=datatable,
             stats=User.stats()
         )
