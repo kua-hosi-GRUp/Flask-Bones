@@ -3,150 +3,150 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-11-24 07:36+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-05-16 09:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.1.1\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: cs\n"
 
 #: app/auth/forms.py:10 app/user/forms.py:10
 msgid "Username"
-msgstr ""
+msgstr "Uživatelské jméno"
 
 #: app/auth/forms.py:11 app/user/forms.py:22
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #: app/auth/forms.py:25
 msgid "Unknown username"
-msgstr ""
+msgstr "Uživatelské jméno neexistuje"
 
 #: app/auth/forms.py:29
 msgid "Invalid password"
-msgstr ""
+msgstr "Špatné heslo"
 
 #: app/auth/forms.py:33
 msgid "User not activated"
-msgstr ""
+msgstr "Uživatel není aktivovaný"
 
 #: app/auth/views.py:27
 msgid "You were logged in as {username}"
-msgstr ""
+msgstr "Byl jste přihlášen jako {username}"
 
 #: app/auth/views.py:41
 msgid "You were logged out"
-msgstr ""
+msgstr "Byl jste odhlášen"
 
 #: app/auth/views.py:64
 msgid "Sent verification email to {email}"
-msgstr ""
+msgstr "Poslán verifikační email na {email}"
 
 #: app/auth/views.py:91
 msgid "Registered user {username}. Please login to continue."
-msgstr ""
+msgstr "Registrován uživatel {username}."
 
 #: app/auth/templates/login.html:4 app/auth/templates/login.html:22
 msgid "Login"
-msgstr ""
+msgstr "Přihlášení"
 
 #: app/auth/templates/login.html:24
 msgid "or"
-msgstr ""
+msgstr "nebo"
 
 #: app/auth/templates/login.html:25 app/auth/templates/register.html:4
 msgid "Register"
-msgstr ""
+msgstr "Registrace"
 
 #: app/auth/templates/register.html:32
 msgid "Submit"
-msgstr ""
+msgstr "Odeslat"
 
 #: app/templates/layout.html:24
 msgid "Terms"
-msgstr ""
+msgstr "Podmínky"
 
 #: app/templates/layout.html:25
 msgid "Privacy"
-msgstr ""
+msgstr "Soukromí"
 
 #: app/templates/layout.html:26
 msgid "Security"
-msgstr ""
+msgstr "Bezpečnost"
 
 #: app/templates/errors/401.html:3 app/templates/errors/401.html:9
 msgid "Unauthorized"
-msgstr ""
+msgstr "Neoprávněný"
 
 #: app/templates/errors/401.html:10
 msgid "You're not allowed to do this."
-msgstr ""
+msgstr "Na tohle nemáte oprávnění."
 
 #: app/templates/errors/401.html:11 app/templates/errors/404.html:11
 #: app/templates/errors/500.html:11
 msgid "Go somewhere nice"
-msgstr ""
+msgstr "Jdi někam jinam"
 
 #: app/templates/errors/404.html:9
 msgid "Page Not Found"
-msgstr ""
+msgstr "Stránka nenalezena"
 
 #: app/templates/errors/404.html:10
 msgid "What you were looking for is just not there."
-msgstr ""
+msgstr "To, co jste hledali tu prostě není."
 
 #: app/templates/errors/500.html:3 app/templates/errors/500.html:9
 msgid "Internal Server Error"
-msgstr ""
+msgstr "Vnitřní error serveru"
 
 #: app/templates/errors/500.html:10
 msgid "Something blew up."
-msgstr ""
+msgstr "Něco explodovalo."
 
 #: app/user/forms.py:13
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: app/user/forms.py:27
 msgid "Passwords must match"
-msgstr ""
+msgstr "Hesla musejí být stejná"
 
 #: app/user/forms.py:33
 msgid "Confirm Password"
-msgstr ""
+msgstr "Potvrdit heslo"
 
 #: app/user/forms.py:36
 msgid "I accept the TOS"
-msgstr ""
+msgstr "Souhlasím s podmínkami TOS"
 
 #: app/user/forms.py:50
 msgid "Username already registered"
-msgstr ""
+msgstr "Toto uživatelské jméno už je použité"
 
 #: app/user/forms.py:55
 msgid "Email already registered"
-msgstr ""
+msgstr "Tento email už je použitý"
 
 #: app/user/forms.py:63
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: app/user/forms.py:64
 msgid "Activated"
-msgstr ""
+msgstr "Aktivováno"
 
 #: app/user/views.py:48
 msgid "User {username} edited"
-msgstr ""
+msgstr "Uživatel {username} editován"
 
 #: app/user/views.py:60
 msgid "User {username} deleted"
-msgstr ""
-
+msgstr "Uživatel {username} smazán"
