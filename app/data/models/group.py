@@ -1,6 +1,6 @@
-from app.data import db, CRUDMixin
-from . import User
-
+from .. import db
+from ..mixins import CRUDMixin
+from .user import User
 
 class Group(CRUDMixin, db.Model):
     __tablename__ = "group"
@@ -8,7 +8,7 @@ class Group(CRUDMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nazev = db.Column(db.String(128), nullable=False, unique=True)
     created_ts = db.Column(db.DateTime(), nullable=False)
-    users = db.relationship(User, backref='in_group', lazy='dynamic')
+    #users = db.relationship(User, backref='in_group', lazy='dynamic')
     # TODO: Establish which users are admins
 
     def __init__(self, nazev):

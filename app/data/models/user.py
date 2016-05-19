@@ -1,6 +1,7 @@
 from flask.ext.login import UserMixin
 from app.extensions import cache, bcrypt
-from app.data import db, CRUDMixin
+from .. import db
+from ..mixins import CRUDMixin
 import datetime
 
 
@@ -15,7 +16,7 @@ class User(CRUDMixin, UserMixin, db.Model):
     remote_addr = db.Column(db.String(20))
     active = db.Column(db.Boolean())
     is_admin = db.Column(db.Boolean())
-    in_group = db.Column(db.Integer, db.ForeignKey('group.id'))
+    #in_group = db.Column(db.Integer, db.ForeignKey('group.id'))
 
     def __init__(self, username, email, password, remote_addr, active=False, is_admin=False):
         self.username = username

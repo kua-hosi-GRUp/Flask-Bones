@@ -3,7 +3,7 @@ from flask.ext.babel import gettext
 from wtforms import TextField, BooleanField
 from wtforms.validators import DataRequired, Length
 
-from app.data.models.group import Group
+from app.data.models import Group
 
 
 class GroupForm(Group):

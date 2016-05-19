@@ -3,8 +3,8 @@ from flask.ext.babel import gettext
 from flask.ext.login import login_required
 
 from app.data.models.group import Group
-from forms import EditGroupForm
-from ..group import group
+from app.public.forms import EditGroupForm
+from . import group
 
 
 @group.route('/list', methods=['GET', 'POST'])
@@ -27,7 +27,7 @@ def list():
         )
 
     return render_template(
-        'list.html',
+        'group-list.html',
         datatable=datatable
     )
 
@@ -44,7 +44,7 @@ def edit(id):
             gettext('Group {nazev} edited'.format(nazev=group.nazev)),
             'success'
         )
-    return render_template('edit.html', form=form, group=group)
+    return render_template('group-edit.html', form=form, group=group)
 
 
 @group.route('/delete/<int:id>', methods=['GET'])

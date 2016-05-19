@@ -3,8 +3,8 @@ from flask.ext.babel import gettext
 from flask.ext.login import login_required
 
 from app.data.models.user import User
-from forms import EditUserForm
-from ..user import user
+from app.public.forms import EditUserForm
+from . import user
 
 
 @user.route('/list', methods=['GET', 'POST'])
@@ -30,7 +30,7 @@ def list():
         )
 
     return render_template(
-        'list.html',
+        'user-list.html',
         datatable=datatable,
         stats=User.stats()
     )
@@ -48,7 +48,7 @@ def edit(id):
             gettext('User {username} edited'.format(username=user.username)),
             'success'
         )
-    return render_template('edit.html', form=form, user=user)
+    return render_template('user-edit.html', form=form, user=user)
 
 
 @user.route('/delete/<int:id>', methods=['GET'])
@@ -60,4 +60,4 @@ def delete(id):
         gettext('User {username} deleted').format(username=user.username),
         'success'
     )
-    return redirect(url_for('.list'))
+    return redirect(url_for('auth.list'))
