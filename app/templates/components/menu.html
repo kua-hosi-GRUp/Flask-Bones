@@ -26,6 +26,7 @@
                 </ul>
             {%- endif %}
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="/en/login">en</a></li>
                 {% if current_user.is_authenticated -%}
                     <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
                 {% else %}
