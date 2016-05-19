@@ -4,18 +4,20 @@ from flask.ext.login import login_required
 
 from app.data.models.group import Group
 from app.public.forms import EditGroupForm
-from . import group
+from . import admin
 
 
-@group.route('/list', methods=['GET', 'POST'])
+@admin.route('/group/list', methods=['GET', 'POST'])
 @login_required
-def list():
+def group_list():
 
     from app.data import DataTable
     datatable = DataTable(
         model=Group,
+        columns=[],
         sortable=[Group.nazev, Group.created_ts],
         searchable=[Group.nazev],
+        filterable=[],
         limits=[25, 50, 100],
         request=request
     )
@@ -32,9 +34,9 @@ def list():
     )
 
 
-@group.route('/edit/<int:id>', methods=['GET', 'POST'])
+@admin.route('/group/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
-def edit(id):
+def group_edit(id):
     group = Group.query.filter_by(id=id).first_or_404()
     form = EditGroupForm(obj=group)
     if form.validate_on_submit():
@@ -47,13 +49,13 @@ def edit(id):
     return render_template('group-edit.html', form=form, group=group)
 
 
-@group.route('/delete/<int:id>', methods=['GET'])
+@admin.route('/group/delete/<int:id>', methods=['GET'])
 @login_required
-def delete(id):
+def group_delete(id):
     group = Group.query.filter_by(id=id).first_or_404()
     group.delete()
     flash(
         gettext('Group {nazev} deleted').format(nazev=group.nazev),
         'success'
     )
-    return redirect(url_for('.list'))
+    return redirect(url_for('.group_list'))

@@ -4,12 +4,12 @@ from flask.ext.login import login_required
 
 from app.data.models.user import User
 from app.public.forms import EditUserForm
-from . import user
+from . import admin
 
 
-@user.route('/list', methods=['GET', 'POST'])
+@admin.route('/user/list', methods=['GET', 'POST'])
 @login_required
-def list():
+def user_list():
 
     from app.data import DataTable
     datatable = DataTable(
@@ -36,9 +36,9 @@ def list():
     )
 
 
-@user.route('/edit/<int:id>', methods=['GET', 'POST'])
+@admin.route('/user/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
-def edit(id):
+def user_edit(id):
     user = User.query.filter_by(id=id).first_or_404()
     form = EditUserForm(obj=user)
     if form.validate_on_submit():
@@ -51,13 +51,13 @@ def edit(id):
     return render_template('user-edit.html', form=form, user=user)
 
 
-@user.route('/delete/<int:id>', methods=['GET'])
+@admin.route('/user/delete/<int:id>', methods=['GET'])
 @login_required
-def delete(id):
+def user_delete(id):
     user = User.query.filter_by(id=id).first_or_404()
     user.delete()
     flash(
         gettext('User {username} deleted').format(username=user.username),
         'success'
     )
-    return redirect(url_for('auth.list'))
+    return redirect(url_for('.user_list'))

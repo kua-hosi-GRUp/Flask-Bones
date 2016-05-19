@@ -12,13 +12,13 @@
             <tbody>
                 {% for u in datatable.query.items %}
                     <tr>
-                        <td><a href="{{ url_for('.edit', id=u.id) }}">{{ u.username }}</a></td>
+                        <td><a href="{{ url_for('.user_edit', id=u.id) }}">{{ u.username }}</a></td>
                         <td>{{ u.email }}</td>
                         <td>{{ timeago(u.created_ts) }}</td>
                         <td>{{ u.remote_addr }}</td>
                         <td>
                             {% set dialogue = 'Are you sure you want to delete %s?' % u.username %}
-                            <a data-confirm data-dialogue="{{ dialogue }}" class="btn btn-default btn-xs" href="{{ url_for('.delete', id=u.id) }}">
+                            <a data-confirm data-dialogue="{{ dialogue }}" class="btn btn-default btn-xs" href="{{ url_for('.user_delete', id=u.id) }}">
                                 <i class="icon-trash"></i>
                             </a>
                         </td>

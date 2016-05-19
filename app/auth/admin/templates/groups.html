@@ -12,11 +12,11 @@
             <tbody>
                 {% for g in datatable.query.items %}
                     <tr>
-                        <td><a href="{{ url_for('.edit', id=g.id) }}">{{ g.nazev }}</a></td>
+                        <td><a href="{{ url_for('.group_edit', id=g.id) }}">{{ g.nazev }}</a></td>
                         <td>{{ timeago(g.created_ts) }}</td>
                         <td>
                             {% set dialogue = 'Are you sure you want to delete %s?' % g.nazev %}
-                            <a data-confirm data-dialogue="{{ dialogue }}" class="btn btn-default btn-xs" href="{{ url_for('.delete', id=g.id) }}">
+                            <a data-confirm data-dialogue="{{ dialogue }}" class="btn btn-default btn-xs" href="{{ url_for('.group_delete', id=g.id) }}">
                                 <i class="icon-trash"></i>
                             </a>
                         </td>

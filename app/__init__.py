@@ -8,6 +8,7 @@ import app.utils as utils
 from app import config
 from app.public import public
 from app.auth import auth
+from app.auth.admin import admin
 import time
 
 
@@ -56,6 +57,7 @@ def register_blueprints(app):
     #app.register_blueprint(firma, url_prefix='/firma')
     app.register_blueprint(auth)
     app.register_blueprint(public)
+    app.register_blueprint(admin)
 
 
 def register_errorhandlers(app):
