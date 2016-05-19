@@ -1,5 +1,5 @@
 from flask import Flask, g, render_template, request
-from app.database import db
+from app.data import db
 from app.extensions import (
     lm, api, travis, mail, heroku, bcrypt, celery, babel
 )

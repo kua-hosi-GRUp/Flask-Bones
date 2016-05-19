@@ -1,13 +1,12 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
-
+from .models import Group, User
 
 def populate_db(num_users=5):
     """
-    Fills the database will fake data.
+    Fills the data will fake data.
     """
     from faker import Factory
-    from app.user.models import User
 
     fake = Factory.create()
 

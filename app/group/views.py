@@ -1,9 +1,9 @@
 from flask import request, redirect, url_for, render_template, flash, g
 from flask.ext.babel import gettext
 from flask.ext.login import login_required
-from app.group.models import Group
-from forms import EditGroupForm
 
+from app.data.models.group import Group
+from forms import EditGroupForm
 from ..group import group
 
 
@@ -11,7 +11,7 @@ from ..group import group
 @login_required
 def list():
 
-    from app.database import DataTable
+    from app.data import DataTable
     datatable = DataTable(
         model=Group,
         sortable=[Group.nazev, Group.created_ts],

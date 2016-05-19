@@ -1,9 +1,9 @@
 from flask import request, redirect, url_for, render_template, flash, g
 from flask.ext.babel import gettext
 from flask.ext.login import login_required
-from app.user.models import User
-from forms import EditUserForm
 
+from app.data.models.user import User
+from forms import EditUserForm
 from ..user import user
 
 
@@ -11,20 +11,20 @@ from ..user import user
 @login_required
 def list():
 
-    from app.database import DataTable
+    from app.data import DataTable
     datatable = DataTable(
         model=User,
         columns=[User.remote_addr],
         sortable=[User.username, User.email, User.created_ts],
         searchable=[User.username, User.email],
         filterable=[User.active],
-        limits=[25, 50, 100],
+        limits=[10, 25, 50, 100],
         request=request
     )
 
     if g.pjax:
         return render_template(
-            'groups.html',
+            'users.html',
             datatable=datatable,
             stats=User.stats()
         )

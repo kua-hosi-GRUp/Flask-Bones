@@ -1,8 +1,9 @@
 from flask_wtf import Form
 from flask.ext.babel import gettext
-from wtforms import TextField, PasswordField, BooleanField
-from wtforms.validators import DataRequired, Email, EqualTo, Length
-from app.group.models import Group
+from wtforms import TextField, BooleanField
+from wtforms.validators import DataRequired, Length
+
+from app.data.models.group import Group
 
 
 class GroupForm(Group):

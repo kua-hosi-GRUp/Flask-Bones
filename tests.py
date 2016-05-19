@@ -1,10 +1,13 @@
+import unittest
+
+from sqlalchemy.sql.expression import func
+
+from faker import Factory
+
 from app import create_app
 from app.config import test_config
-from app.database import db
-from app.user.models import User
-from sqlalchemy.sql.expression import func
-from faker import Factory
-import unittest
+from app.data import db
+from app.data.models.user import User
 
 admin_username = 'cburmeister'
 admin_email = 'cburmeister@discogs.com'

@@ -4,9 +4,10 @@ from flask import (
 from flask.ext.babel import gettext
 from flask.ext.login import login_user, login_required, logout_user
 from itsdangerous import URLSafeSerializer, BadSignature
+
 from app.extensions import lm
 from app.tasks import send_registration_email
-from app.user.models import User
+from app.data.models.user import User
 from app.user.forms import RegisterUserForm
 from .forms import LoginForm
 from ..auth import auth

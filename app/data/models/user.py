@@ -1,10 +1,12 @@
 from flask.ext.login import UserMixin
 from app.extensions import cache, bcrypt
-from app.database import db, CRUDMixin
+from app.data import db, CRUDMixin
 import datetime
 
 
 class User(CRUDMixin, UserMixin, db.Model):
+    __tablename__ = "user"
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False, unique=True)
     email = db.Column(db.String(128), nullable=False, unique=True)
