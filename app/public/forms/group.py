@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Length
 from app.data.models import Group
 
 
-class GroupForm(Group):
+class GroupForm(Form):
     nazev = TextField(
         gettext('Name'), validators=[DataRequired(), Length(min=2, max=128)]
     )

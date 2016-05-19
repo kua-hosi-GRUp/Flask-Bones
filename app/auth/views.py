@@ -3,9 +3,11 @@ from flask import (
 )
 from flask.ext.babel import gettext
 from flask.ext.login import login_user, login_required, logout_user
+from itsdangerous import URLSafeSerializer, BadSignature
+from app.public.forms import RegisterGroupForm
 from app.extensions import lm
-from app.data.models import User
-from app.auth import auth
+from app.data.models import User, Group
+from . import auth
 
 
 @lm.user_loader
@@ -19,3 +21,25 @@ def logout():
     logout_user()
     flash(gettext('You were logged out'), 'success')
     return redirect(url_for('public.login'))
+
+
+@auth.route('/create_group', methods=['GET', 'POST'])
+@login_required
+def create_group():
+    form = RegisterGroupForm()
+    if form.validate_on_submit():
+
+        group = Group.create(
+            nazev=form.data['nazev'],
+        )
+
+        flash(
+            gettext(
+                'Group {name} created'.format(
+                    email=group.nazev
+                )
+            ),
+            'success'
+        )
+        return redirect(url_for('index'))
+    return render_template('create_group.html', form=form)
