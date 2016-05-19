@@ -3,7 +3,7 @@ from flask.ext.babel import gettext
 from wtforms import TextField, PasswordField
 from wtforms.validators import DataRequired
 
-from app.user.models import User
+from app.data.models import User
 
 
 class LoginForm(Form):

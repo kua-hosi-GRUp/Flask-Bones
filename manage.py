@@ -1,5 +1,5 @@
 from app import create_app, config
-from app.database import db, populate_db
+from app.data import db, populate_db
 from flask.ext.migrate import Migrate, MigrateCommand
 from flask.ext.script import (
     Server,
@@ -29,14 +29,14 @@ manager.add_command('db', MigrateCommand)
 @manager.command
 @manager.option('-n', '--num_users', help='Number of users')
 def create_db(num_users=5):
-    """Creates database tables and populates them."""
+    """Creates data tables and populates them."""
     db.create_all()
     populate_db(num_users=num_users)
 
 
 @manager.command
 def drop_db():
-    """Drops database tables."""
+    """Drops data tables."""
     if prompt_bool('Are you sure?'):
         db.drop_all()
 

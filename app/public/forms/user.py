@@ -2,7 +2,8 @@ from flask_wtf import Form
 from flask.ext.babel import gettext
 from wtforms import TextField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
-from app.user.models import User
+
+from app.data.models import User
 
 
 class UserForm(Form):

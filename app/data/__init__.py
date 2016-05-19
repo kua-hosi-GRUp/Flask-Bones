@@ -1,13 +1,12 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
-
+from .models import Group, User
 
 def populate_db(num_users=5):
     """
-    Fills the database will fake data.
+    Fills the data will fake data.
     """
     from faker import Factory
-    from app.user.models import User
 
     fake = Factory.create()
 
@@ -41,39 +40,6 @@ def populate_db(num_users=5):
         db.session.add(user)
 
     db.session.commit()
-
-
-class CRUDMixin(object):
-    __table_args__ = {'extend_existing': True}
-
-    id = db.Column(db.Integer, primary_key=True)
-
-    @classmethod
-    def get_by_id(cls, id):
-        if any((isinstance(id, basestring) and id.isdigit(),
-                isinstance(id, (int, float))),):
-            return cls.query.get(int(id))
-        return None
-
-    @classmethod
-    def create(cls, **kwargs):
-        instance = cls(**kwargs)
-        return instance.save()
-
-    def update(self, commit=True, **kwargs):
-        for attr, value in kwargs.iteritems():
-            setattr(self, attr, value)
-        return commit and self.save() or self
-
-    def save(self, commit=True):
-        db.session.add(self)
-        if commit:
-            db.session.commit()
-        return self
-
-    def delete(self, commit=True):
-        db.session.delete(self)
-        return commit and db.session.commit()
 
 
 class DataTable(object):

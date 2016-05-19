@@ -1,13 +1,14 @@
-from flask import Flask, g, render_template, request
-from app.database import db
+from flask import Flask, g, render_template, request, redirect
+from app.data import db
 from app.extensions import (
     lm, api, travis, mail, heroku, bcrypt, celery, babel
 )
 from app.assets import assets
 import app.utils as utils
 from app import config
-from app.user import user
+from app.public import public
 from app.auth import auth
+from app.auth.admin import admin
 import time
 
 
@@ -22,7 +23,7 @@ def create_app(config=config.base_config):
 
     @babel.localeselector
     def get_locale():
-        return request.accept_languages.best_match(config.SUPPORTED_LOCALES)
+        return g.lang_code
 
     @app.before_request
     def before_request():
@@ -30,9 +31,10 @@ def create_app(config=config.base_config):
         g.request_time = lambda: '%.5fs' % (time.time() - g.request_start_time)
         g.pjax = 'X-PJAX' in request.headers
 
-    @app.route('/', methods=['GET'])
+    @app.route('/', methods=['GET','POST'])
     def index():
-        return render_template('index.html')
+        lang=request.accept_languages.best_match(config.SUPPORTED_LOCALES)
+        return redirect(lang+'/login')
 
     return app
 
@@ -51,8 +53,9 @@ def register_extensions(app):
 
 
 def register_blueprints(app):
-    app.register_blueprint(user, url_prefix='/user')
     app.register_blueprint(auth)
+    app.register_blueprint(public)
+    app.register_blueprint(admin)
 
 
 def register_errorhandlers(app):

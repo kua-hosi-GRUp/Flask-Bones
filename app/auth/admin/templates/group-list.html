@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Groups
+{% endblock %}
+
+{% block header %}
+    <ol class="breadcrumb">
+        <li><a href="{{ url_for('.group_list') }}">Admin</a></li>
+        <li class="active">Groups</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+    <div id="pjax-container">
+        {% include 'groups.html' %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
