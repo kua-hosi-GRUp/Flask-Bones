@@ -1,8 +1,6 @@
 from flask import Flask, g, render_template, request, redirect
 from app.data import db
-from app.extensions import (
-    lm, api, travis, mail, heroku, bcrypt, celery, babel
-)
+from app.extensions import lm, api, travis, mail, heroku, bcrypt, celery, babel
 from app.assets import assets
 import app.utils as utils
 from app import config
@@ -24,6 +22,8 @@ def create_app(config=config.base_config):
     @babel.localeselector
     def get_locale():
         return g.lang_code
+
+
 
     @app.before_request
     def before_request():

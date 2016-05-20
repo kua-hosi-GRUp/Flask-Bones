@@ -3,16 +3,13 @@ from flask.ext.babel import gettext
 from wtforms import TextField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
+
 from app.data.models import User
 
 
 class UserForm(Form):
-    username = TextField(
-        gettext('Username'), validators=[DataRequired(), Length(min=2, max=20)]
-    )
-    email = TextField(
-        gettext('Email'), validators=[Email(), DataRequired(), Length(max=128)]
-    )
+    username = TextField(gettext('Username'), validators=[DataRequired(), Length(min=2, max=20)])
+    email = TextField(gettext('Email'), validators=[Email(), DataRequired(), Length(max=128)])
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
@@ -30,12 +27,8 @@ class RegisterUserForm(UserForm):
             Length(min=6, max=20)
         ]
     )
-    confirm = PasswordField(
-        gettext('Confirm Password'), validators=[DataRequired()]
-    )
-    accept_tos = BooleanField(
-        gettext('I accept the TOS'), validators=[DataRequired()]
-    )
+    confirm = PasswordField(gettext('Confirm Password'), validators=[DataRequired()])
+    accept_tos = BooleanField(gettext(' I accept the TOS'), validators=[DataRequired()])
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)

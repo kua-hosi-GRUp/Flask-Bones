@@ -1,4 +1,5 @@
 from flask import flash, request, url_for
+from flask.ext.babel import gettext
 
 
 def flash_errors(form, category='danger'):
@@ -44,23 +45,23 @@ def timeago(time=False):
 
     if day_diff == 0:
         if second_diff < 10:
-            return "just now"
+            return gettext("Just now")
         if second_diff < 60:
-            return str(second_diff) + " seconds ago"
+            return gettext('{s} seconds ago').format(s=str(second_diff))
         if second_diff < 120:
-            return "a minute ago"
+            return gettext("A minute ago")
         if second_diff < 3600:
-            return str(second_diff / 60) + " minutes ago"
+            return gettext('{s} minutes ago').format(s=str(second_diff/60))
         if second_diff < 7200:
-            return "an hour ago"
+            return gettext("An hour ago")
         if second_diff < 86400:
-            return str(second_diff / 3600) + " hours ago"
+            return gettext('{s} hours ago').format(s=str(second_diff/3600))
     if day_diff == 1:
-        return "Yesterday"
+        return gettext("Yesterday")
     if day_diff < 7:
-        return str(day_diff) + " days ago"
+        return gettext('{s} days ago').format(s=str(day_diff))
     if day_diff < 31:
-        return str(day_diff/7) + " weeks ago"
+        return gettext('{s} weeks ago').format(s=str(day_diff/7))
     if day_diff < 365:
-        return str(day_diff/30) + " months ago"
-    return str(day_diff/365) + " years ago"
+        return gettext('{s} months ago').format(s=str(day_diff/30))
+    return gettext('{s} years ago').format(s=str(day_diff/365))

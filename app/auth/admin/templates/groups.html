@@ -4,25 +4,28 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        {{ search('Search for a Name') }}
+        {{ search(gettext('Search for a Name')) }}
     </div>
     <div class="table-responsive">
         <table class="table table-striped">
-            {{ table_header(datatable, actions=True) }}
+            <tr>
+                <th>{{ gettext('Name') }}</th>
+                <th>{{ gettext('Time Created') }}</th>
+            </tr>
             <tbody>
                 {% for g in datatable.query.items %}
                     <tr>
                         <td><a href="{{ url_for('.group_edit', id=g.id) }}">{{ g.nazev }}</a></td>
                         <td>{{ timeago(g.created_ts) }}</td>
                         <td>
-                            {% set dialogue = 'Are you sure you want to delete %s?' % g.nazev %}
+                            {% set dialogue = gettext('Are you sure you want to delete {nazev}?').format(nazev=g.nazev) %}
                             <a data-confirm data-dialogue="{{ dialogue }}" class="btn btn-default btn-xs" href="{{ url_for('.group_delete', id=g.id) }}">
                                 <i class="icon-trash"></i>
                             </a>
                         </td>
                     </tr>
                 {% else %}
-                    <tr><td colspan="{{ datatable.colspan }}">No results found for: {{ request.values.get('query') }}</td></tr>
+                    {%- if request.values.get('query') %}<tr><td colspan="{{ datatable.colspan }}">{{ gettext('No results found for: ')}}{{ request.values.get('query') }}</td></tr>{% endif %}
                 {% endfor %}
             </tbody>
         </table>
