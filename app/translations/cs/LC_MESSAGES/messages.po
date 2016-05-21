@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-05-20 14:03+0200\n"
+"POT-Creation-Date: 2016-05-21 10:41+0200\n"
 "PO-Revision-Date: 2016-05-20 09:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: cs <LL@li.org>\n"
@@ -68,15 +68,15 @@ msgstr "Byl jste odhlášen"
 
 #: app/auth/views.py:38
 msgid "Group {name} created"
-msgstr "Skupina {username} vytvořena"
+msgstr "Skupina {name} vytvořena"
 
 #: app/auth/admin/group_views.py:46
 msgid "Group {nazev} edited"
-msgstr "Skupina {username} editována"
+msgstr "Skupina {nazev} editována"
 
 #: app/auth/admin/group_views.py:58
 msgid "Group {nazev} deleted"
-msgstr "Skupina {username} smazána"
+msgstr "Skupina {nazev} smazána"
 
 #: app/auth/admin/user_views.py:48
 msgid "User {username} edited"
@@ -159,7 +159,7 @@ msgstr "Poslán verifikační email na {email}"
 msgid "Registered user {username}. Please login to continue."
 msgstr "Registrován uživatel {username}."
 
-#: app/public/forms/group.py:20
+#: app/public/forms/group.py:20 app/public/forms/user.py:21
 msgid "I accept the TOS"
 msgstr "Souhlasím s podmínkami TOS"
 
@@ -167,47 +167,53 @@ msgstr "Souhlasím s podmínkami TOS"
 msgid "Name already registered"
 msgstr "Toto uživatelské jméno už je použité"
 
-#: app/public/forms/login.py:11 app/public/forms/user.py:20
+#: app/public/forms/login.py:10 app/public/forms/login.py:11
+#: app/public/forms/user.py:11 app/public/forms/user.py:12
+#: app/public/forms/user.py:19 app/public/forms/user.py:20
+msgid "This field is required."
+msgstr "Toto pole je vyžadováno."
+
+#: app/public/forms/login.py:11 app/public/forms/user.py:19
 msgid "Password"
 msgstr "Heslo"
 
-#: app/public/forms/login.py:25
+#: app/public/forms/login.py:26
 msgid "Unknown username"
 msgstr "Uživatelské jméno neexistuje"
 
-#: app/public/forms/login.py:29
+#: app/public/forms/login.py:30
 msgid "Invalid password"
 msgstr "Špatné heslo"
 
-#: app/public/forms/login.py:33
+#: app/public/forms/login.py:34
 msgid "User not activated"
 msgstr "Uživatel není aktivovaný"
 
-#: app/public/forms/user.py:25
-msgid "Passwords must match"
-msgstr "Hesla musejí být stejná"
+#: app/public/forms/user.py:12
+msgid "Invalid email address."
+msgstr "Špatná emailová adresa."
 
-#: app/public/forms/user.py:30
+#: app/public/forms/user.py:19
+msgid "Passwords must match."
+msgstr "Hesla musejí být stejná."
+
+#: app/public/forms/user.py:20
 msgid "Confirm Password"
-msgstr "Potvrdit heslo"
+msgstr "Potvrď heslo"
 
-#: app/public/forms/user.py:31
-msgid " I accept the TOS"
-msgstr "Souhlasím s podmínkami TOS"
-
-#: app/public/forms/user.py:44
+#: app/public/forms/user.py:34
 msgid "Username already registered"
-msgstr "Toto uživatelské jméno už je použité"
+msgstr "Uživatelské jméno je již použito."
 
-#: app/public/forms/user.py:49
+#: app/public/forms/user.py:39
 msgid "Email already registered"
-msgstr "Tento email už je použitý"
+msgstr "Tento email je již registrovaný"
 
-#: app/public/forms/user.py:57
+#: app/public/forms/user.py:47
 msgid "Admin"
 msgstr "Admin"
 
-#: app/public/forms/user.py:58
+#: app/public/forms/user.py:48
 msgid "Activated"
 msgstr "Aktivováno"
 
@@ -267,22 +273,4 @@ msgstr "Vnitřní error serveru"
 #: app/templates/errors/500.html:10
 msgid "Something blew up."
 msgstr "Něco explodovalo."
-
-#~ msgid " minutes ago"
-#~ msgstr ""
-
-#~ msgid " hours ago"
-#~ msgstr ""
-
-#~ msgid " days ago"
-#~ msgstr ""
-
-#~ msgid " weeks ago"
-#~ msgstr ""
-
-#~ msgid " months ago"
-#~ msgstr ""
-
-#~ msgid " years ago"
-#~ msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-05-20 14:03+0200\n"
+"POT-Creation-Date: 2016-05-21 10:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Generated-By: Babel 1.3\n"
 
 #: app/utils.py:48
-msgid "just now"
+msgid "Just now"
 msgstr ""
 
 #: app/utils.py:50
@@ -26,7 +26,7 @@ msgid "{s} seconds ago"
 msgstr ""
 
 #: app/utils.py:52
-msgid "a minute ago"
+msgid "A minute ago"
 msgstr ""
 
 #: app/utils.py:54
@@ -34,7 +34,7 @@ msgid "{s} minutes ago"
 msgstr ""
 
 #: app/utils.py:56
-msgid "an hour ago"
+msgid "An hour ago"
 msgstr ""
 
 #: app/utils.py:58
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Registered user {username}. Please login to continue."
 msgstr ""
 
-#: app/public/forms/group.py:20
+#: app/public/forms/group.py:20 app/public/forms/user.py:21
 msgid "I accept the TOS"
 msgstr ""
 
@@ -166,47 +166,53 @@ msgstr ""
 msgid "Name already registered"
 msgstr ""
 
-#: app/public/forms/login.py:11 app/public/forms/user.py:20
+#: app/public/forms/login.py:10 app/public/forms/login.py:11
+#: app/public/forms/user.py:11 app/public/forms/user.py:12
+#: app/public/forms/user.py:19 app/public/forms/user.py:20
+msgid "This field is required."
+msgstr ""
+
+#: app/public/forms/login.py:11 app/public/forms/user.py:19
 msgid "Password"
 msgstr ""
 
-#: app/public/forms/login.py:25
+#: app/public/forms/login.py:26
 msgid "Unknown username"
 msgstr ""
 
-#: app/public/forms/login.py:29
+#: app/public/forms/login.py:30
 msgid "Invalid password"
 msgstr ""
 
-#: app/public/forms/login.py:33
+#: app/public/forms/login.py:34
 msgid "User not activated"
 msgstr ""
 
-#: app/public/forms/user.py:25
-msgid "Passwords must match"
+#: app/public/forms/user.py:12
+msgid "Invalid email address."
 msgstr ""
 
-#: app/public/forms/user.py:30
+#: app/public/forms/user.py:19
+msgid "Passwords must match."
+msgstr ""
+
+#: app/public/forms/user.py:20
 msgid "Confirm Password"
 msgstr ""
 
-#: app/public/forms/user.py:31
-msgid " I accept the TOS"
-msgstr ""
-
-#: app/public/forms/user.py:44
+#: app/public/forms/user.py:34
 msgid "Username already registered"
 msgstr ""
 
-#: app/public/forms/user.py:49
+#: app/public/forms/user.py:39
 msgid "Email already registered"
 msgstr ""
 
-#: app/public/forms/user.py:57
+#: app/public/forms/user.py:47
 msgid "Admin"
 msgstr ""
 
-#: app/public/forms/user.py:58
+#: app/public/forms/user.py:48
 msgid "Activated"
 msgstr ""
 
