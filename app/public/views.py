@@ -34,7 +34,6 @@ def login():
 def register():
     form = RegisterUserForm()
     if form.validate_on_submit():
-
         user = User.create(
             username=form.data['username'],
             email=form.data['email'],

@@ -18,7 +18,7 @@ class UserForm(Form):
 class RegisterUserForm(UserForm):
     password = PasswordField(lazy_gettext('Password'),validators=[DataRequired(lazy_gettext('This field is required.')),EqualTo('confirm',message=lazy_gettext('Passwords must match.')),Length(min=6, max=20)])
     confirm = PasswordField(lazy_gettext('Confirm Password'), validators=[DataRequired(lazy_gettext('This field is required.'))])
-    accept_tos = BooleanField(lazy_gettext('I accept the TOS'), validators=[DataRequired()])
+    accept_tos = BooleanField(lazy_gettext('I accept the TOS'), validators=[DataRequired(lazy_gettext('This field is required.'))])
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)

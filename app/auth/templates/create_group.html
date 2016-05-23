@@ -11,7 +11,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    {% trans %}New group{% trans %}
+                    {% trans %}New group{% endtrans %}
                 </h3>
             </div>
             <div class="panel-body">
@@ -22,6 +22,11 @@
                         {{ form.accept_tos() }}
                         {{ form.accept_tos.label.text }}
                     </label>
+                    {% if form.accept_tos.errors %}
+                        {% for error in form.accept_tos.errors %}
+                            <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
             <div class="panel-footer">

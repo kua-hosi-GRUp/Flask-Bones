@@ -1,13 +1,13 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    Groups
+    {% trans %}Groups{% endtrans %}
 {% endblock %}
 
 {% block header %}
     <ol class="breadcrumb">
-        <li><a href="{{ url_for('.group_list') }}">Admin</a></li>
-        <li class="active">Groups</li>
+        <li><a href="{{ url_for('.group_list') }}">{% trans %}Admin{% endtrans %}</a></li>
+        <li class="active">{% trans %}Groups{% endtrans %}</li>
     </ol>
 {% endblock %}
 
