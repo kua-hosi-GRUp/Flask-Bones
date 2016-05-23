@@ -1,5 +1,5 @@
+from flask.ext.babel import gettext,lazy_gettext
 from flask_wtf import Form
-from flask.ext.babel import gettext
 from wtforms import TextField, PasswordField
 from wtforms.validators import DataRequired
 
@@ -7,12 +7,13 @@ from app.data.models import User
 
 
 class LoginForm(Form):
-    username = TextField(gettext('Username'), validators=[DataRequired()])
-    password = PasswordField(gettext('Password'), validators=[DataRequired()])
+    username = TextField(lazy_gettext('Username'), validators=[DataRequired(lazy_gettext('This field is required.'))])
+    password = PasswordField(lazy_gettext('Password'), validators=[DataRequired(lazy_gettext('This field is required.'))])
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
         self.user = None
+
 
     def validate(self):
         rv = Form.validate(self)

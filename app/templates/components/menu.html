@@ -1,6 +1,6 @@
 {% set nav = [
-    ('Users', 'admin.user_list'),
-    ('Groups', 'admin.group_list'),
+    (gettext('Users'), 'admin.user_list'),
+    (gettext('Groups'), 'admin.group_list'),
 ] %}
 
 <div class="navbar navbar-default navbar-fixed-top">
@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url_for('index') }}">{{ config.SITE_NAME }}</a>
+            <a class="navbar-brand" href="{{ url_for('public.index') }}">{{ config.SITE_NAME }}</a>
         </div>
         <div class="navbar-collapse collapse">
             {% if current_user.is_admin -%}
@@ -26,11 +26,12 @@
                 </ul>
             {%- endif %}
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/en/login">en</a></li>
+                {%- if request.path=="/cs/"+request.path[4:] %}<li ><a href="/en/{{ request.path[4:] }}">en</a></li>{% endif %}
+                {%- if request.path=="/en/"+request.path[4:] %}<li ><a href="/cs/{{ request.path[4:] }}">cs</a></li>{% endif %}
                 {% if current_user.is_authenticated -%}
-                    <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+                    <li><a href="{{ url_for('auth.logout') }}">{% trans %}Log Out{% endtrans %}</a></li>
                 {% else %}
-                    <li><a href="{{ url_for('public.login') }}">Log In</a></li>
+                    <li><a href="{{ url_for('public.login') }}">{% trans %}Log In{% endtrans %}</a></li>
                 {%- endif %}
             </ul>
         </div>

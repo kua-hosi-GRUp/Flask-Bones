@@ -3,14 +3,14 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Edit Group - {{ group.nazev }}
+    {% trans %}Edit Group{% endtrans %} - {{ group.nazev }}
 {% endblock %}
 
 {% block header %}
     <ol class="breadcrumb">
-        <li><a href="{{ url_for('.group_list') }}">Admin</a></li>
-        <li><a href="{{ url_for('.group_list') }}">Groups</a></li>
-        <li class="active">Edit Group</li>
+        <li><a href="{{ url_for('.group_list') }}">{% trans %}Admin{% endtrans %}</a></li>
+        <li><a href="{{ url_for('.group_list') }}">{% trans %}Groups{% endtrans %}</a></li>
+        <li class="active">{% trans %}Edit Group{% endtrans %}</li>
     </ol>
 {% endblock %}
 
@@ -18,19 +18,19 @@
     <form method="POST" action="{{ request.url }}">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Edit Group
+                {% trans %}Edit Group{% endtrans %}
             </div>
             <div class="panel-body">
                 {{ form.csrf_token }}
                 {{ render_field(form.nazev) }}
             </div>
             <div class="panel-footer">
-                <button type="submit" class="btn btn-default"><i class="icon-save"></i> Save</button>
-                <a class="btn btn-default" href="{{ url_for('.group_list') }}"><i class="icon-remove"></i> Cancel</a>
+                <button type="submit" class="btn btn-default"><i class="icon-save"></i> {% trans %}Save{% endtrans %}</button>
+                <a class="btn btn-default" href="{{ url_for('.group_list') }}"><i class="icon-remove"></i> {% trans %}Cancel{% endtrans %}</a>
                 {% if current_user.is_admin %}
                     {% set dialogue = 'Are you sure you want to delete %s?' % group.nazev %}
                     <a data-confirm data-dialogue="{{ dialogue }}" class="btn btn-default pull-right" href="{{ url_for('.group_delete', id=group.id) }}">
-                        <i class="icon-trash"></i> Delete
+                        <i class="icon-trash"></i> {% trans %}Delete{% endtrans %}
                     </a>
                 {% endif %}
             </div>

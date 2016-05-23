@@ -1,6 +1,4 @@
-from flask import (
-    current_app, request, redirect, url_for, render_template, flash, abort,
-)
+from flask import current_app, request, redirect, url_for, render_template, flash, abort,g
 from flask.ext.babel import gettext
 from flask.ext.login import login_user
 from itsdangerous import URLSafeSerializer, BadSignature
@@ -17,20 +15,18 @@ def load_user(id):
     return User.get_by_id(int(id))
 
 
+@public.route('/index')
+def index():
+    return render_template("index.html")
+
+
 @public.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
         login_user(form.user)
-        flash(
-            gettext(
-                'You were logged in as {username}'.format(
-                    username=form.user.username
-                ),
-            ),
-            'success'
-        )
-        return redirect(request.args.get('next') or url_for('index'))
+        flash(gettext('You were logged in as {username}').format(username=form.user.username,),'success')
+        return redirect(request.args.get('next') or g.lang_code+'/login')
     return render_template('login.html', form=form)
 
 
@@ -38,7 +34,6 @@ def login():
 def register():
     form = RegisterUserForm()
     if form.validate_on_submit():
-
         user = User.create(
             username=form.data['username'],
             email=form.data['email'],
@@ -59,7 +54,7 @@ def register():
             ),
             'success'
         )
-        return redirect(url_for('index'))
+        return redirect(url_for('public.index'))
     return render_template('register.html', form=form)
 
 

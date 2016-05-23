@@ -1,13 +1,13 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    Users
+    {% trans %}Users{% endtrans %}
 {% endblock %}
 
 {% block header %}
     <ol class="breadcrumb">
-        <li><a href="{{ url_for('.user_list') }}">Admin</a></li>
-        <li class="active">Users</li>
+        <li><a href="{{ url_for('.user_list') }}">{% trans %}Admin{% endtrans %}</a></li>
+        <li class="active">{% trans %}Users{% endtrans %}</li>
     </ol>
 {% endblock %}
 

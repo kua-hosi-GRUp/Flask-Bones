@@ -8,7 +8,7 @@
 {% block body %}
     <h1>{% trans %}Page Not Found{% endtrans %}</h1>
     <p>{% trans %}What you were looking for is just not there.{% endtrans %}</p>
-    <p><a href="{{ url_for('index') }}">{% trans %}Go somewhere nice{% endtrans %}</a></p>
+    <p><a href="{{ url_for('public.index') }}">{% trans %}Go somewhere nice{% endtrans %}</a></p>
 {% endblock %}
 
 {% block footer %}

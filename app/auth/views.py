@@ -36,10 +36,11 @@ def create_group():
         flash(
             gettext(
                 'Group {name} created'.format(
-                    email=group.nazev
+                    name=group.nazev
                 )
             ),
             'success'
         )
-        return redirect(url_for('index'))
+        return redirect(url_for('public.index'))
+    print(form.accept_tos.label)
     return render_template('create_group.html', form=form)
