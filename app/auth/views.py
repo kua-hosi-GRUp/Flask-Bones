@@ -43,3 +43,9 @@ def create_group():
         )
         return redirect(url_for('public.index'))
     return render_template('create_group.html', form=form)
+
+@auth.route('/group/add/<int:id>', methods=['GET', 'POST'])
+def group_add_user(id):
+    group = Group.query.filter_by(id=id).first_or_404()
+    users = User.query.all()
+    return render_template('group_add_users.html', users=users)
