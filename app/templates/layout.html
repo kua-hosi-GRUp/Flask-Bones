@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ ASSET_URL }}">
     {%- endassets %}
 </head>
-<body>
+<body onload={% raw %}"if(init!=undefined){ init(); };"{% endraw %}>
     {% include 'components/menu.html' %}
     <div class="container">
         {% include 'components/flash.html' %}
