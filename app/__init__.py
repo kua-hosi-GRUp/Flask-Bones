@@ -32,9 +32,9 @@ def create_app(config=config.base_config):
         g.pjax = 'X-PJAX' in request.headers
 
     @app.route('/', methods=['GET','POST'])
-    def index():
+    def root():
         lang=request.accept_languages.best_match(config.SUPPORTED_LOCALES)
-        return redirect(lang+'/login')
+        return redirect(lang+'/index')
 
     return app
 

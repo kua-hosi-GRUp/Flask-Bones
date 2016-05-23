@@ -41,5 +41,5 @@ def create_group():
             ),
             'success'
         )
-        return redirect(url_for('index'))
+        return redirect(url_for('public.index'))
     return render_template('create_group.html', form=form)

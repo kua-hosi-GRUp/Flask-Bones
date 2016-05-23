@@ -15,6 +15,11 @@ def load_user(id):
     return User.get_by_id(int(id))
 
 
+@public.route('/index')
+def index():
+    return render_template("index.html")
+
+
 @public.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -50,7 +55,7 @@ def register():
             ),
             'success'
         )
-        return redirect(url_for('index'))
+        return redirect(url_for('public.index'))
     return render_template('register.html', form=form)
 
 
