@@ -42,5 +42,4 @@ def create_group():
             'success'
         )
         return redirect(url_for('public.index'))
-    print(form.accept_tos.label)
     return render_template('create_group.html', form=form)

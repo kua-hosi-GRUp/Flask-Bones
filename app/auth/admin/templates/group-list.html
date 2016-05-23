@@ -8,6 +8,7 @@
     <ol class="breadcrumb">
         <li><a href="{{ url_for('.group_list') }}">{% trans %}Admin{% endtrans %}</a></li>
         <li class="active">{% trans %}Groups{% endtrans %}</li>
+        <li><a class="btn btn-default" href="{{ url_for('auth.create_group') }}"><span class="glyphicon glyphicon-plus"></span> {% trans %}Create Group{% endtrans %}</a></li>
     </ol>
 {% endblock %}
 
