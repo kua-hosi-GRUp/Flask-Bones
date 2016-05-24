@@ -1,5 +1,5 @@
 from flask import current_app, request, redirect, url_for, render_template, flash, abort,g
-from flask.ext.babel import gettext
+from flask.ext.babel import lazy_gettext,gettext
 from flask.ext.login import login_user
 from itsdangerous import URLSafeSerializer, BadSignature
 from app.extensions import lm
@@ -46,14 +46,7 @@ def register():
 
         send_registration_email.delay(user, token)
 
-        flash(
-            gettext(
-                'Sent verification email to {email}'.format(
-                    email=user.email
-                )
-            ),
-            'success'
-        )
+        flash(gettext('Sent verification email to {email}').format(email=user.email),'success')
         return redirect(url_for('public.index'))
     return render_template('register.html', form=form)
 
@@ -73,12 +66,5 @@ def verify(token):
         user.active = True
         user.update()
 
-        flash(
-            gettext(
-                'Registered user {username}. Please login to continue.'.format(
-                    username=user.username
-                ),
-            ),
-            'success'
-        )
+        flash(gettext('Registered user {username}. Please login to continue.').format(username=user.username,),'success')
         return redirect(url_for('public.login'))

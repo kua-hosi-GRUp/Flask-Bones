@@ -1,5 +1,5 @@
 from flask import request, redirect, url_for, render_template, flash, g
-from flask.ext.babel import gettext
+from flask.ext.babel import lazy_gettext,gettext
 from flask.ext.login import login_required
 
 from app.data.models.user import User
@@ -44,10 +44,7 @@ def user_edit(id):
     if form.validate_on_submit():
         form.populate_obj(user)
         user.update()
-        flash(
-            gettext('User {username} edited'.format(username=user.username)),
-            'success'
-        )
+        flash(gettext('User {username} edited').format(username=user.username),'success')
     return render_template('user-edit.html', form=form, user=user)
 
 
@@ -56,8 +53,5 @@ def user_edit(id):
 def user_delete(id):
     user = User.query.filter_by(id=id).first_or_404()
     user.delete()
-    flash(
-        gettext('User {username} deleted').format(username=user.username),
-        'success'
-    )
+    flash(gettext('User {username} deleted').format(username=user.username),'success')
     return redirect(url_for('.user_list'))
