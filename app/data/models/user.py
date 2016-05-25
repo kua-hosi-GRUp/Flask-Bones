@@ -17,7 +17,8 @@ class User(CRUDMixin, UserMixin, db.Model):
     remote_addr = db.Column(db.String(20))
     active = db.Column(db.Boolean())
     is_admin = db.Column(db.Boolean())
-    groups = db.relationship("Association", back_populates="users")
+    groups = db.relationship("U_G_Association", back_populates="users")
+    firmy = db.relationship("U_F_Association", back_populates="users")
 
     def __init__(self, username, email, password, remote_addr, active=False, is_admin=False):
         self.username = username
