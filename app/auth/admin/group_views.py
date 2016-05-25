@@ -1,5 +1,5 @@
 from flask import request, redirect, url_for, render_template, flash, g
-from flask.ext.babel import gettext
+from flask.ext.babel import lazy_gettext,gettext
 from flask.ext.login import login_required
 
 from app.data.models.group import Group
@@ -42,10 +42,7 @@ def group_edit(id):
     if form.validate_on_submit():
         form.populate_obj(group)
         group.update()
-        flash(
-            gettext('Group {nazev} edited'.format(nazev=group.nazev)),
-            'success'
-        )
+        flash(gettext('Group {nazev} edited').format(nazev=group.nazev),'success')
     return render_template('group-edit.html', form=form, group=group)
 
 
@@ -54,8 +51,5 @@ def group_edit(id):
 def group_delete(id):
     group = Group.query.filter_by(id=id).first_or_404()
     group.delete()
-    flash(
-        gettext('Group {nazev} deleted').format(nazev=group.nazev),
-        'success'
-    )
+    flash(gettext('Group {nazev} deleted').format(nazev=group.nazev),'success')
     return redirect(url_for('.group_list'))

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-05-21 10:41+0200\n"
+"POT-Creation-Date: 2016-05-24 20:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,31 +65,70 @@ msgstr ""
 msgid "You were logged out"
 msgstr ""
 
-#: app/auth/views.py:38
+#: app/auth/views.py:34
 msgid "Group {name} created"
 msgstr ""
 
-#: app/auth/admin/group_views.py:46
+#: app/auth/admin/group_views.py:45
 msgid "Group {nazev} edited"
 msgstr ""
 
-#: app/auth/admin/group_views.py:58
+#: app/auth/admin/group_views.py:54
 msgid "Group {nazev} deleted"
 msgstr ""
 
-#: app/auth/admin/user_views.py:48
+#: app/auth/admin/user_views.py:47
 msgid "User {username} edited"
 msgstr ""
 
-#: app/auth/admin/user_views.py:60
+#: app/auth/admin/user_views.py:56
 msgid "User {username} deleted"
+msgstr ""
+
+#: app/auth/admin/templates/group-edit.html:6
+#: app/auth/admin/templates/group-edit.html:13
+#: app/auth/admin/templates/group-edit.html:21
+msgid "Edit Group"
+msgstr ""
+
+#: app/auth/admin/templates/group-edit.html:11
+#: app/auth/admin/templates/group-list.html:9
+#: app/auth/admin/templates/user-edit.html:11
+#: app/auth/admin/templates/user-list.html:9 app/public/forms/user.py:47
+msgid "Admin"
+msgstr ""
+
+#: app/auth/admin/templates/group-edit.html:12
+#: app/auth/admin/templates/group-list.html:4
+#: app/auth/admin/templates/group-list.html:10
+#: app/templates/components/menu.html:3
+msgid "Groups"
+msgstr ""
+
+#: app/auth/admin/templates/group-edit.html:28
+#: app/auth/admin/templates/user-edit.html:41
+msgid "Save"
+msgstr ""
+
+#: app/auth/admin/templates/group-edit.html:29
+#: app/auth/admin/templates/user-edit.html:42
+msgid "Cancel"
+msgstr ""
+
+#: app/auth/admin/templates/group-edit.html:33
+#: app/auth/admin/templates/user-edit.html:46
+msgid "Delete"
+msgstr ""
+
+#: app/auth/admin/templates/group-list.html:11
+msgid "Create Group"
 msgstr ""
 
 #: app/auth/admin/templates/groups.html:7
 msgid "Search for a Name"
 msgstr ""
 
-#: app/auth/admin/templates/groups.html:12 app/public/forms/group.py:11
+#: app/auth/admin/templates/groups.html:12
 msgid "Name"
 msgstr ""
 
@@ -105,6 +144,19 @@ msgstr ""
 #: app/auth/admin/templates/groups.html:28
 #: app/auth/admin/templates/users.html:32
 msgid "No results found for: "
+msgstr ""
+
+#: app/auth/admin/templates/user-edit.html:6
+#: app/auth/admin/templates/user-edit.html:13
+#: app/auth/admin/templates/user-edit.html:21
+msgid "Edit User"
+msgstr ""
+
+#: app/auth/admin/templates/user-edit.html:12
+#: app/auth/admin/templates/user-list.html:4
+#: app/auth/admin/templates/user-list.html:10
+#: app/templates/components/menu.html:2
+msgid "Users"
 msgstr ""
 
 #: app/auth/admin/templates/users.html:7
@@ -128,6 +180,16 @@ msgstr ""
 msgid "Are you sure you want to delete {username}?"
 msgstr ""
 
+#: app/auth/templates/create_group.html:4
+#: app/auth/templates/create_group.html:14
+#: app/auth/templates/group_add_users.html:4
+msgid "New group"
+msgstr ""
+
+#: app/auth/templates/create_group.html:34 app/auth/templates/register.html:37
+msgid "Submit"
+msgstr ""
+
 #: app/auth/templates/login.html:4 app/auth/templates/login.html:13
 #: app/auth/templates/login.html:22
 msgid "Login"
@@ -142,34 +204,32 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: app/auth/templates/register.html:32
-msgid "Submit"
-msgstr ""
-
-#: app/public/views.py:23
+#: app/public/views.py:28
 msgid "You were logged in as {username}"
 msgstr ""
 
-#: app/public/views.py:47
+#: app/public/views.py:49
 msgid "Sent verification email to {email}"
 msgstr ""
 
-#: app/public/views.py:74
+#: app/public/views.py:69
 msgid "Registered user {username}. Please login to continue."
 msgstr ""
 
-#: app/public/forms/group.py:20 app/public/forms/user.py:21
-msgid "I accept the TOS"
+#: app/public/forms/group.py:10 app/public/forms/group.py:17
+msgid "Group Name"
 msgstr ""
 
-#: app/public/forms/group.py:34
-msgid "Name already registered"
-msgstr ""
-
+#: app/public/forms/group.py:17 app/public/forms/group.py:18
 #: app/public/forms/login.py:10 app/public/forms/login.py:11
 #: app/public/forms/user.py:11 app/public/forms/user.py:12
 #: app/public/forms/user.py:19 app/public/forms/user.py:20
+#: app/public/forms/user.py:21
 msgid "This field is required."
+msgstr ""
+
+#: app/public/forms/group.py:18 app/public/forms/user.py:21
+msgid "I accept the TOS"
 msgstr ""
 
 #: app/public/forms/login.py:11 app/public/forms/user.py:19
@@ -208,10 +268,6 @@ msgstr ""
 msgid "Email already registered"
 msgstr ""
 
-#: app/public/forms/user.py:47
-msgid "Admin"
-msgstr ""
-
 #: app/public/forms/user.py:48
 msgid "Activated"
 msgstr ""
@@ -226,14 +282,6 @@ msgstr ""
 
 #: app/templates/layout.html:26
 msgid "Security"
-msgstr ""
-
-#: app/templates/components/menu.html:2
-msgid "Users"
-msgstr ""
-
-#: app/templates/components/menu.html:3
-msgid "Groups"
 msgstr ""
 
 #: app/templates/components/menu.html:32
@@ -257,7 +305,7 @@ msgstr ""
 msgid "Go somewhere nice"
 msgstr ""
 
-#: app/templates/errors/404.html:9
+#: app/templates/errors/404.html:3 app/templates/errors/404.html:9
 msgid "Page Not Found"
 msgstr ""
 
