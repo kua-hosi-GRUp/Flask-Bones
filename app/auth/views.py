@@ -1,5 +1,5 @@
 from flask import (
-    current_app, request, redirect, url_for, render_template, flash, abort,
+    current_app, request, redirect, url_for, render_template, flash, abort
 )
 from flask.ext.babel import gettext, lazy_gettext
 from flask.ext.login import login_user, login_required, logout_user
@@ -8,7 +8,14 @@ from app.public.forms import RegisterGroupForm, RegisterFirmaForm
 from app.extensions import lm
 from app.data.models import User, Group, Firma
 from . import auth
+import json
 
+
+class CustomEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, User):
+            return obj.to_json()
+        return json.JSONEncoder.default(self, obj)
 
 @lm.user_loader
 def load_user(id):
@@ -56,4 +63,5 @@ def create_organization():
 def group_add_user(id):
     group = Group.query.filter_by(id=id).first_or_404()
     users = User.query.all()
-    return render_template('group_add_users.html', users=users)
+    pole = json.dumps(users, cls=CustomEncoder)
+    return render_template('group_add_users.html', pole=pole)

@@ -3,7 +3,7 @@ import os
 class base_config(object):
     """Default configuration options."""
     SITE_NAME = 'Flask Bones'
-
+    BABEL_DEFAULT_LOCALE='cs'
     #SERVER_NAME = os.environ['SERVER_NAME']
     #SECRET_KEY = os.environ['SECRET_KEY']
     SERVER_NAME="localhost:5000"

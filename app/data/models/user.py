@@ -38,6 +38,9 @@ class User(CRUDMixin, UserMixin, db.Model):
     def check_password(self, password):
         return bcrypt.check_password_hash(self.pw_hash, password)
 
+    def to_json(self):
+        return [self.username]
+
     @classmethod
     def stats(cls):
         active_users = cache.get('active_users')
