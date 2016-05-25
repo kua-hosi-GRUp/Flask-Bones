@@ -17,3 +17,9 @@ class Group(CRUDMixin, db.Model):
 
     def __repr__(self):
         return '<Group %s>' % self.nazev
+
+    @staticmethod
+    def if_exists(group):
+        if not Group.query.filter_by(nazev=group).first():
+            return False
+        return True
