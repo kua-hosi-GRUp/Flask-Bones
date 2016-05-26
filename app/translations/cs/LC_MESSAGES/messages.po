@@ -21,7 +21,7 @@ msgstr ""
 
 #: app/fields.py:16
 msgid "Invalid value"
-msgstr ""
+msgstr "Cancer"
 
 #: app/utils.py:50
 msgid "Just now"
@@ -57,7 +57,7 @@ msgstr "Před {s} dny"
 
 #: app/utils.py:66
 msgid "A week ago"
-msgstr ""
+msgstr "Před týdnem"
 
 #: app/utils.py:68
 msgid "{s} weeks ago"
@@ -65,7 +65,7 @@ msgstr "Před {s} týdny"
 
 #: app/utils.py:70
 msgid "A month ago"
-msgstr ""
+msgstr "Před měsícem"
 
 #: app/utils.py:72
 msgid "{s} months ago"
@@ -73,7 +73,7 @@ msgstr "Před {s} měsíci"
 
 #: app/utils.py:74
 msgid "A year ago"
-msgstr ""
+msgstr "Před rokem"
 
 #: app/utils.py:75
 msgid "{s} years ago"
@@ -89,15 +89,15 @@ msgstr "Skupina {name} vytvořena"
 
 #: app/auth/views.py:65
 msgid "Organization {name} created"
-msgstr ""
+msgstr "Organizace {name} vytvořena"
 
 #: app/auth/admin/firma_views.py:46
 msgid "Organization {nazev} edited"
-msgstr ""
+msgstr "Organizace {nazev} upravena"
 
 #: app/auth/admin/firma_views.py:55
 msgid "Organization {nazev} deleted"
-msgstr ""
+msgstr "Organizace {nazev} smazána"
 
 #: app/auth/admin/group_views.py:46
 msgid "Group {nazev} edited"

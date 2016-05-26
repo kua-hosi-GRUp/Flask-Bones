@@ -64,7 +64,7 @@ def create_organization():
 
         flash(gettext('Organization {name} created').format(name=firma.nazev),'success')
         return redirect(url_for('public.index'))
-    return render_template('pzypa.html', form=form)
+    return render_template('create_firma.html', form=form)
 
 @auth.route('/group/add/<int:id>', methods=['GET', 'POST'])
 def group_add_user(id):
