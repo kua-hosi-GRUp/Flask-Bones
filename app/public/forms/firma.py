@@ -14,10 +14,10 @@ class FirmaForm(Form):
 
 
 class RegisterFirmaForm(FirmaForm):
-    address = TextField(lazy_gettext('Address'), validators=[DataRequired(lazy_gettext('This field is required')), Length(min=2, max=128)])
-    state = TextField(lazy_gettext('State'), validators=[DataRequired(lazy_gettext('This field is required')), Length(min=2, max=64)])
+    address = TextField(lazy_gettext('Address'), validators=[DataRequired(lazy_gettext('This field is required.')), Length(min=2, max=128)])
+    state = TextField(lazy_gettext('State'), validators=[DataRequired(lazy_gettext('This field is required.')), Length(min=2, max=64)])
     contact_person = TextField(lazy_gettext('Contact Person'), validators=[Length(max=64)])
-    phone_number = TextField(lazy_gettext('Phone number'), validators=[DataRequired(lazy_gettext('This field is required')), Length(max=16)])
+    phone_number = TextField(lazy_gettext('Phone number'), validators=[DataRequired(lazy_gettext('This field is required.')), Length(max=16)])
     website = TextField(lazy_gettext('Organization website'), validators=[Length(max=64)])
     accept_tos = BooleanField(lazy_gettext('I accept the TOS'), validators=[DataRequired(lazy_gettext('This field is required.'))])
 
