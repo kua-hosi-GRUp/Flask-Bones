@@ -1,6 +1,6 @@
 from flask import current_app, request, redirect, url_for, render_template, flash, abort,g
 from flask.ext.babel import lazy_gettext,gettext
-from flask.ext.login import login_user
+from flask.ext.login import login_user, current_user
 from itsdangerous import URLSafeSerializer, BadSignature
 from app.extensions import lm
 from app.tasks import send_registration_email
@@ -12,7 +12,7 @@ from . import public
 
 @lm.user_loader
 def load_user(id):
-    return User.get_by_id(int(id))
+        return User.get_by_id(int(id))
 
 
 @public.route('/index')
@@ -39,6 +39,8 @@ def register():
             email=form.data['email'],
             password=form.data['password'],
             remote_addr=request.remote_addr,
+            jmeno=form.data['jmeno'],
+            prijmeni=form.data['prijmeni']
         )
 
         s = URLSafeSerializer(current_app.secret_key)

@@ -28,7 +28,14 @@ class UserForm(Form):
         Email(message=lazy_gettext('Please enter a valid email address')),
         InputRequired(message=lazy_gettext('You can\'t leave this empty'))])
     #email = TextField(lazy_gettext('Email'), validators=[Email(lazy_gettext('Invalid email address.')), DataRequired(lazy_gettext('This field is required.')), Length(max=128)])
-
+    jmeno = TextField(lazy_gettext('First Name'), validators=[
+        Length(min=2, max=64, message=lazy_gettext("Please use between 2 and 64 characters")),
+        Predicate(safe_characters, message=lazy_gettext("Please use only letters (a-z) and numbers")),
+        InputRequired(message=lazy_gettext("You can't leave this empty"))])
+    prijmeni = TextField(lazy_gettext('Surname'), validators=[
+        Length(min=2, max=64, message=lazy_gettext("Please use between 2 and 64 characters")),
+        Predicate(safe_characters, message=lazy_gettext("Please use only letters (a-z) and numbers")),
+        InputRequired(message=lazy_gettext("You can't leave this empty"))])
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
 
@@ -45,6 +52,7 @@ class RegisterUserForm(UserForm):
     #confirm = PasswordField(lazy_gettext('Confirm Password'), validators=[DataRequired(lazy_gettext('This field is required.'))])
     accept_tos = BooleanField(lazy_gettext('I accept the TOS'), validators=[
         InputRequired(message=lazy_gettext("You can't leave this empty"))])
+
     #accept_tos = BooleanField(lazy_gettext('I accept the TOS'), validators=[DataRequired(lazy_gettext('This field is required.'))])
 
     def __init__(self, *args, **kwargs):
