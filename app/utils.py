@@ -60,8 +60,14 @@ def timeago(time=False):
         return gettext("Yesterday")
     if day_diff < 7:
         return gettext('{s} days ago').format(s=str(day_diff))
+    if day_diff < 14:
+        return gettext('A week ago')
     if day_diff < 31:
         return gettext('{s} weeks ago').format(s=str(day_diff/7))
+    if day_diff < 62:
+        return gettext('A month ago')
     if day_diff < 365:
         return gettext('{s} months ago').format(s=str(day_diff/30))
+    if day_diff < 730:
+        return gettext('A year ago')
     return gettext('{s} years ago').format(s=str(day_diff/365))
