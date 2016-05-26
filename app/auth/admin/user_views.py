@@ -2,6 +2,7 @@ from flask import request, redirect, url_for, render_template, flash, g
 from flask.ext.babel import lazy_gettext,gettext
 from flask.ext.login import login_required
 
+from app.utils import admin_required
 from app.data.models.user import User
 from app.public.forms import EditUserForm
 from . import admin
@@ -37,7 +38,7 @@ def user_list():
 
 
 @admin.route('/user/edit/<int:id>', methods=['GET', 'POST'])
-@login_required
+@admin_required
 def user_edit(id):
     user = User.query.filter_by(id=id).first_or_404()
     form = EditUserForm(obj=user)
@@ -49,7 +50,7 @@ def user_edit(id):
 
 
 @admin.route('/user/delete/<int:id>', methods=['GET'])
-@login_required
+@admin_required
 def user_delete(id):
     user = User.query.filter_by(id=id).first_or_404()
     user.delete()

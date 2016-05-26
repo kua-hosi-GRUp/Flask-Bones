@@ -2,13 +2,14 @@ from flask import request, redirect, url_for, render_template, flash, g
 from flask.ext.babel import lazy_gettext,gettext
 from flask.ext.login import login_required
 
+from app.utils import admin_required
 from app.data.models.group import Group
 from app.public.forms import EditGroupForm
 from . import admin
 
 
 @admin.route('/group/list', methods=['GET', 'POST'])
-@login_required
+@admin_required
 def group_list():
 
     from app.data import DataTable
@@ -35,7 +36,7 @@ def group_list():
 
 
 @admin.route('/group/edit/<int:id>', methods=['GET', 'POST'])
-@login_required
+@admin_required
 def group_edit(id):
     group = Group.query.filter_by(id=id).first_or_404()
     form = EditGroupForm(obj=group)
@@ -47,7 +48,7 @@ def group_edit(id):
 
 
 @admin.route('/group/delete/<int:id>', methods=['GET'])
-@login_required
+@admin_required
 def group_delete(id):
     group = Group.query.filter_by(id=id).first_or_404()
     group.delete()

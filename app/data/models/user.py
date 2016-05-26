@@ -69,3 +69,8 @@ class User(CRUDMixin, UserMixin, db.Model):
         if not User.query.filter_by(username=username).first():
             return False
         return True
+    @staticmethod
+    def if_exists(username):
+        if not User.query.filter_by(username=username).first():
+            return False
+        return True

@@ -22,6 +22,13 @@ def load_user(id):
     return User.get_by_id(int(id))
 
 
+@auth.route('/profile')
+@login_required
+def profile():
+
+    return render_template('profile.html')
+
+
 @auth.route('/logout', methods=['GET'])
 @login_required
 def logout():

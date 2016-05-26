@@ -1,5 +1,7 @@
-from flask import flash, request, url_for
+from flask import flash, request, url_for, current_app
+from flask.ext.login import current_user
 from flask.ext.babel import gettext
+from functools import wraps
 
 
 def flash_errors(form, category='danger'):
@@ -60,8 +62,33 @@ def timeago(time=False):
         return gettext("Yesterday")
     if day_diff < 7:
         return gettext('{s} days ago').format(s=str(day_diff))
+    if day_diff < 14:
+        return gettext('A week ago')
     if day_diff < 31:
         return gettext('{s} weeks ago').format(s=str(day_diff/7))
+    if day_diff < 62:
+        return gettext('A month ago')
     if day_diff < 365:
         return gettext('{s} months ago').format(s=str(day_diff/30))
+    if day_diff < 730:
+        return gettext('A year ago')
     return gettext('{s} years ago').format(s=str(day_diff/365))
+
+def admin_required(func):
+    '''
+        @app.route('/admin')
+        @admin_required
+        def admin():
+            pass
+
+    :param func: The view function to decorate.
+    :type func: function
+    '''
+    @wraps(func)
+    def decorated_view(*args, **kwargs):
+        if current_app.login_manager._login_disabled:
+            return func(*args, **kwargs)
+        elif not current_user.is_admin:
+            return current_app.login_manager.unauthorized()
+        return func(*args, **kwargs)
+    return decorated_view
