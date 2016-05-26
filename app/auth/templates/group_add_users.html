@@ -7,24 +7,22 @@
 {% endblock %}
 
 {% block body %}
-    <form method="POST" action="{{ request.url }}">
-        <div>
-            <div class="panel panel-default" style="width: 45%; float: left;">
-                <table class="table" id="panel1">
+    <div>
+        <div style="width: 45%; float: left;">
+            <table class="table table-bordered" id="panel1">
 
-                </table>
-            </div>
-            <div style="width: 10%; float: left; text-align: center">
-                <a class="btn btn-default"><span class="glyphicon glyphicon-arrow-right"></span></a><br>
-                <a class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span></a>
-            </div>
-            <div class="panel panel-default" style="width: 45%; float: left;">
-                <table class="table" id="panel2">
-                    <tr><td>(empty)</td></tr>
-                </table>
-            </div>
+            </table>
         </div>
-    </form>
+        <div style="width: 10%; float: left; text-align: center">
+            <button id="btn-right" class="btn btn-default"><span class="glyphicon glyphicon-arrow-right"></span></button><br>
+            <button id="btn-left" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span></button>
+        </div>
+        <div style="width: 45%; float: left;">
+            <table class="table" id="panel2">
+                <tr><td>(empty)</td></tr>
+            </table>
+        </div>
+    </div>
 {% endblock %}
 
 {% block footer %}
@@ -32,17 +30,22 @@
         var users = {{ pole|safe }}
 
         $(document).ready(function() {
-            $('#panel1').DataTable( {
+            var table = $('#panel1').DataTable( {
                 data: users,
                 columns: [
                     { title: "Name" }
                 ]
             } );
-        } );
-        $('#panel1 tbody').on( 'click', 'tr', function () {
-            $(this).toggleClass('selected');
-        } );
 
+            $('#panel1 tbody').on( 'click', 'tr', function () {
+                $(this).toggleClass('selected');
+            } );
+
+            $('#btn-right').click( function () {
+                console.log(table.rows('.selected').data());
+            } );
+
+        } );
     </script>
 {% endblock %}
 
