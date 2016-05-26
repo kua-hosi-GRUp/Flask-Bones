@@ -8,7 +8,8 @@ class Group(CRUDMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nazev = db.Column(db.String(128), nullable=False, unique=True)
     created_ts = db.Column(db.DateTime(), nullable=False)
-    users = db.relationship("Association", back_populates="groups")
+    users = db.relationship("U_G_Association", back_populates="groups")
+    firmy = db.relationship("G_F_Association", back_populates="groups")
     # TODO: Establish which users are admins
 
     def __init__(self, nazev):

@@ -26,7 +26,7 @@ def login():
     if form.validate_on_submit():
         login_user(form.user)
         flash(gettext('You were logged in as {username}').format(username=form.user.username,),'success')
-        return redirect(request.args.get('next') or g.lang_code+'/login')
+        return redirect(request.args.get('next') or g.lang_code+'/index')
     return render_template('login.html', form=form)
 
 

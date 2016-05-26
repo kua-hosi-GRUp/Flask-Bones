@@ -29,21 +29,20 @@
 
 {% block footer %}
     <script>
-        var users = [
-            {% for user in users %}
-                "{{ user.username }}",
-            {% endfor %}
-        ];
-        function init(){
-            for(var i=0; i<users.length; i++){
-                var str = "<tr><td>";
+        var users = {{ pole|safe }}
 
-                str += users[i];
+        $(document).ready(function() {
+            $('#panel1').DataTable( {
+                data: users,
+                columns: [
+                    { title: "Name" }
+                ]
+            } );
+        } );
+        $('#panel1 tbody').on( 'click', 'tr', function () {
+            $(this).toggleClass('selected');
+        } );
 
-                str += "</td></tr>";
-                document.getElementById("panel1").innerHTML += str;
-            }
-        }
     </script>
 {% endblock %}
 

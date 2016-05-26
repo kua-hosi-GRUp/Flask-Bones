@@ -11,8 +11,10 @@
     {% assets "css_all" -%}
         <link rel="stylesheet" href="{{ ASSET_URL }}">
     {%- endassets %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='DataTables/datatables.min.css') }}"/>
+    <script type="text/javascript" src="{{ url_for('static', filename='DataTables/datatables.min.js') }}"></script>
 </head>
-<body onload={% raw %}"if(init!=undefined){ init(); };"{% endraw %}>
+<body>
     {% include 'components/menu.html' %}
     <div class="container">
         {% include 'components/flash.html' %}

@@ -17,7 +17,7 @@
             <div class="panel-body">
                 {{ form.csrf_token }}
                 {{ render_field(form.nazev) }}
-                <div class="checkbox">
+                <div class="checkbox{{ ' has-error' if form.accept_tos.errors }}">
                     <label>
                         {{ form.accept_tos() }}
                         {{ form.accept_tos.label.text }}

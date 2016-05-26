@@ -10,12 +10,14 @@
         <table class="table table-striped">
             <tr>
                 <th>{{ gettext('Name') }}</th>
+                <th>{{ gettext('User count') }}</th>
                 <th>{{ gettext('Time Created') }}</th>
             </tr>
             <tbody>
                 {% for g in datatable.query.items %}
                     <tr>
                         <td><a href="{{ url_for('.group_edit', id=g.id) }}">{{ g.nazev }}</a></td>
+                        <td>{{ g.users|length }}</td>
                         <td>{{ timeago(g.created_ts) }}</td>
                         <td>
                             {% set dialogue = gettext('Are you sure you want to delete {nazev}?').format(nazev=g.nazev) %}
