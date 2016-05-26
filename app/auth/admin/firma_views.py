@@ -1,9 +1,9 @@
 from flask import request, redirect, url_for, render_template, flash, g
 from flask.ext.babel import lazy_gettext,gettext
-from flask.ext.login import login_required
+from flask.ext.login import login_required, current_user
 
 from app.utils import admin_required
-from app.data.models import Firma
+from app.data.models import Firma, User
 from app.public.forms import EditFirmaForm
 from . import admin
 
@@ -33,6 +33,14 @@ def firma_list():
         'firma-list.html',
         datatable=datatable
     )
+
+
+@admin.route('/firma/setdefault/<int:id>', methods=['GET', 'POST'])
+def set_active_firm(id):
+    xxx = User.find_by_id(current_user.id)
+    xxx.default_idfirm = id
+    xxx.update()
+    return redirect(url_for('.firma_list'))
 
 
 @admin.route('/firma/edit/<int:id>', methods=['GET', 'POST'])
