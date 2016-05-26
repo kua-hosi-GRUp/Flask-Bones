@@ -7,6 +7,7 @@ from app import config
 from app.public import public
 from app.auth import auth
 from app.auth.admin import admin
+from app.fields import Predicate
 import time
 
 
