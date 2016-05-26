@@ -21,6 +21,7 @@
                 {{ render_field(form.password) }}
                 {{ render_field(form.confirm) }}
                 <div class="checkbox{{ ' has-error' if form.accept_tos.errors }}">
+
                     <label>
                         {{ form.accept_tos() }}
                         {{ form.accept_tos.label.text }}
