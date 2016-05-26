@@ -1,6 +1,8 @@
 from .. import db
 from ..mixins import CRUDMixin
 import datetime
+from .association import G_F_Association
+from .firma import Firma
 
 class Group(CRUDMixin, db.Model):
     __tablename__ = "group"
@@ -20,7 +22,8 @@ class Group(CRUDMixin, db.Model):
         return '<Group %s>' % self.nazev
 
     @staticmethod
-    def if_exists(group):
-        if not Group.query.filter_by(nazev=group).first():
+    def if_exists(group, idfirm):
+        if not db.session.query(Group).join(G_F_Association).join(Firma).filter(group.name == group and Firma.id == idfirm).first():
+
             return False
         return True
